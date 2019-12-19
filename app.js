@@ -15,6 +15,7 @@
     const usuarios = require('./routes/usuario')
     const passport = require('passport')
     require('./config/auth')(passport)
+    const db = require('./config/db')
 
 
 // configurações
@@ -49,7 +50,7 @@
 
     // mongoose
         mongoose.Promise = global.Promise;
-        mongoose.connect('mongodb://localhost:27017/blogapp', {useUnifiedTopology: true, useNewUrlParser: true})
+        mongoose.connect(db.mongoURI, {useUnifiedTopology: true, useNewUrlParser: true})
             .then(() => console.log('Conectado ao MongoDB'))
             .catch((err) => console.log('Erro: ' + err))
 
@@ -131,5 +132,5 @@
 
 
     // servidor
-        const PORT = 8081;
-        app.listen(PORT, () => console.log('Servidor conectado em http://localhost:8081'));
+        const PORT = process.env.PORT || 8089;
+        app.listen(PORT, () => console.log('Servidor conectado'));
