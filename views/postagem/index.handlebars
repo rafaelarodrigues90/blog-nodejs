@@ -4,6 +4,19 @@
         <h1>{{postagem.titulo}}</h1>
         <h6>{{postagem.descricao}}</h6>
         <hr>
+        {{#if user}}
         {{postagem.conteudo}}
+        {{else}}
+        <a class="btn btn-primary btn-md" href="/usuarios/registro" role="button">Crie uma conta para ter acesso ao conteúdo completo!</a>
+        {{/if}}
     </div>
 </div>
+
+{{#if user.eAdmin}}
+    <a href="/admin/postagens/edit/{{postagem._id}}"><button class="btn btn-success mt-4">Editar postagem</button></a>    
+    <form action="/admin/postagens/deletar" method="post">
+    <input type="hidden" name="id" value="{{postagem._id}}">
+    <button type="submit" class="btn btn-danger mt-2">Deletar postagem</button>
+{{else}}
+
+{{/if}}
