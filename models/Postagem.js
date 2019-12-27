@@ -14,6 +14,10 @@ const Postagem = new Schema({
         type: String,
         required: true
     },
+    resumo: {
+        type: String,
+        required: true
+    },
     conteudo: {
         type: String,
         required: true

@@ -163,6 +163,7 @@ const {eAdmin} = require('../helpers/eAdmin')
                 titulo: req.body.titulo,
                 slug: req.body.slug,
                 descricao: req.body.descricao,
+                resumo: req.body.resumo,
                 conteudo: req.body.conteudo,
                 categoria: req.body.categoria
             }
@@ -213,6 +214,7 @@ const {eAdmin} = require('../helpers/eAdmin')
             postagem.titulo = req.body.titulo
             postagem.slug = req.body.slug
             postagem.descricao = req.body.descricao
+            postagem.resumo = req.body.resumo
             postagem.conteudo = req.body.conteudo
             postagem.categoria = req.body.categoria
             
